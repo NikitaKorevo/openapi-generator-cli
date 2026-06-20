@@ -74,6 +74,7 @@ jobs:
         run: |
           cd ./examples
           yarn global add json
+          echo "$GITHUB_PATH"
           yarn cache clean && yarn add $GITHUB_WORKSPACE/package.tgz
           npm run oa version
           npm run oa completion
@@ -91,7 +92,7 @@ jobs:
           test -f ./my/storage/4.3.0.jar || exit 1
           json -I -f openapitools.json -e 'this["generator-cli"]["storageDir"]="~/my/storage/"'
           (npm run oa version-manager set 4.3.1 && npm run oa version | grep -q '4.3.1') || exit 1
-          test -f ~/my/storage/4.3.1.jar || exit 1
+          test -f ~/my/storage1/4.3.1.jar || exit 1
           npm run oa:generate && mkdir ./foo && cd ./foo && npm run oa:generate
       #- name: Test with HTTP proxy
       #  run: |
