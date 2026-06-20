@@ -71,6 +71,7 @@ jobs:
           name: package.tgz
 
       - name: Test
+        shell: bash
         run: |
           cd ./examples
           yarn global add json
