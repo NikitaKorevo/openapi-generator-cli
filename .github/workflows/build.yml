@@ -73,6 +73,7 @@ jobs:
       - name: Test
         run: |
           cd ./examples
+          echo "test/testtest" >> $GITHUB_PATH
           echo "My notes"
           echo $GITHUB_PATH
           echo "$GITHUB_PATH"
