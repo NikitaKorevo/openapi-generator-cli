@@ -53,7 +53,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        #os: [ubuntu-latest, macos-latest]
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: [ 22.x ]
 
@@ -70,14 +69,13 @@ jobs:
         with:
           name: package.tgz
 
-      - name: set global yarn to PATH
+      - name: set yarn to PATH
         shell: bash
         run: echo $(yarn global bin) >> $GITHUB_PATH
 
       - name: Test (1/2)
         shell: bash
         run: |
-          echo $GITHUB_PATH
           cd ./examples
           yarn global add json
           yarn cache clean && yarn add $GITHUB_WORKSPACE/package.tgz
@@ -92,7 +90,7 @@ jobs:
           (npm run oa version-manager set 4.3.1 && npm run oa version | grep -q '4.3.1') || exit 1
           (npm run oa version-manager set 4.3.1 && npm run oa version | grep -q '4.3.1') || exit 1
           
-      - name: set variable to env
+      - name: set environment variable
         shell: bash
         run: echo "OPENAPI_GENERATOR_CLI_SEARCH_URL=DEFAULT" >> $GITHUB_ENV
 
