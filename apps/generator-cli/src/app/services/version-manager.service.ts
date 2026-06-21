@@ -16,11 +16,13 @@ import { spawn, spawnSync } from 'child_process';
 
 if (process.env.OPENAPI_GENERATOR_CLI_SEARCH_URL === 'DEFAULT' ) {
      this.logger.log(chalk.red("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is default"))
-      return this.getObservableVersions();
+        console.log("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is default");
+    } else {
+          this.logger.log(chalk.red("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is not default"))
+        console.log("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is not default")
     }
 
-    this.logger.log(chalk.red("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is not default"))
-
+     
 export interface Version {
   version: string;
   versionTags: string[];
