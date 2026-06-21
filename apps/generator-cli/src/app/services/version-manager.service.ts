@@ -13,7 +13,7 @@ import { LOGGER } from '../constants';
 import { ConfigService } from './config.service';
 import * as configSchema from '../../config.schema.json';
 import { spawn, spawnSync } from 'child_process';
-
+     
 export interface Version {
   version: string;
   versionTags: string[];
