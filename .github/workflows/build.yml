@@ -71,11 +71,9 @@ jobs:
           name: package.tgz
 
       - name: set global yarn to PATH
-        shell: bash
         run: echo $(yarn global bin) >> $GITHUB_PATH
 
       - name: Test (1/2)
-        shell: bash
         run: |
           echo $GITHUB_PATH
           cd ./examples
@@ -93,11 +91,9 @@ jobs:
           (npm run oa version-manager set 4.3.1 && npm run oa version | grep -q '4.3.1') || exit 1
           
       - name: set variable to env
-        shell: bash
         run: echo "OPENAPI_GENERATOR_CLI_SEARCH_URL=DEFAULT" >> $GITHUB_ENV
 
-      - name: Test (2/2) 
-        shell: bash
+      - name: Test (2/2)
         run: |
           cd ./examples
           (npm run oa version-manager set 7.2.0 && npm run oa version | grep -q '7.2.0') || exit 1
