@@ -74,7 +74,8 @@ jobs:
         shell: bash
         run: |
           cd ./examples
-          yarn add json
+          yarn global add json
+          yarn global list
           yarn cache clean && yarn add $GITHUB_WORKSPACE/package.tgz
           npm run oa version
           npm run oa completion
