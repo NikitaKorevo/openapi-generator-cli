@@ -71,12 +71,13 @@ jobs:
           name: package.tgz
 
       - name: set global yarn to PATH
+        shell: bash
         run: echo $(yarn global bin) >> $GITHUB_PATH
 
       - name: Test
         shell: bash
         run: |
-          cat $GITHUB_PATH
+          echo $GITHUB_PATH
           cd ./examples
           yarn global add json
           yarn cache clean && yarn add $GITHUB_WORKSPACE/package.tgz
