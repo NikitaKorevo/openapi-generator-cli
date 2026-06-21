@@ -71,7 +71,6 @@ jobs:
           name: package.tgz
 
       - name: set global yarn to PATH
-        shell: bash
         run: echo $(yarn global bin) >> $GITHUB_PATH
 
       - name: Test
