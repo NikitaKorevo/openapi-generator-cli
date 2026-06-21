@@ -59,11 +59,11 @@ export class VersionManagerService {
   getAll(): Observable<Version[]> {
     // bypass querying serach.maven.org and use default versions instead
     if (process.env.OPENAPI_GENERATOR_CLI_SEARCH_URL === 'DEFAULT' ) {
-     this.logger.log("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is default")
+     this.logger.log(chalk.red("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is default"))
       return this.getObservableVersions();
     }
 
-    this.logger.log("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is not default")
+    this.logger.log(chalk.red("qqqqq OPENAPI_GENERATOR_CLI_SEARCH_URL is not default"))
       
 
     const queryUrl = this.replacePlaceholders(
